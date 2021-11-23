@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/login','App\Http\Controllers\AuthController@login');
+Route::post('/register','App\Http\Controllers\AuthController@register');
+Route::post('/info','App\Http\Controllers\OtherController@info');
