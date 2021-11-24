@@ -43,7 +43,9 @@ class AuthController extends Controller {
 		        'email' => 'required|email|unique:users',
 		        'password' => 'required',
 		        'name'	=> 'required',
-		        'id_card' => 'required',	    
+		        'id_card' => 'required',
+		        'vechicle' => 'required',
+		        'type' => 'required' 
         	]);
 
     	if ($validator->fails()) {
@@ -58,6 +60,8 @@ class AuthController extends Controller {
 	    	$user->email = $request->input('email');
 	    	$user->password = Hash::make($request->input('password'));
 	    	$user->id_card 	= $request->input('id_card');
+	    	$user->type 	= $request->input('type');
+	    	$user->vechicle = $request->input('vechicle');
 	    	$user->save();
 	    	return response()->json([
 			    'message' => 'You are successfully registered',
